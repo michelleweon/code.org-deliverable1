@@ -1,0 +1,31 @@
+<% content_for :title, "Horse Tinder - Find Your Perfect Match" %>
+
+<div class="header">
+  <h1>🐴 Horse Tinder</h1>
+  <p class="subtitle">Find your horse's perfect match!</p>
+</div>
+
+<% if notice %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<div class="actions-bar">
+  <%= link_to "Add New Horse", new_horse_path, class: "btn btn-primary btn-large" %>
+  <div class="search-filters">
+    <!-- We'll add filtering functionality later -->
+  </div>
+</div>
+
+<div class="horses-grid">
+  <% if @horses.any? %>
+    <% @horses.each do |horse| %>
+      <%= render horse %>
+    <% end %>
+  <% else %>
+    <div class="empty-state">
+      <h2>No horses yet!</h2>
+      <p>Add your first horse to get started with matching.</p>
+      <%= link_to "Add Your First Horse", new_horse_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

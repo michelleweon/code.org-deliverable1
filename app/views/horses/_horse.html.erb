@@ -1,0 +1,45 @@
+<div id="<%= dom_id horse %>" class="horse-card">
+  <div class="horse-header">
+    <h3 class="horse-name"><%= horse.display_name %></h3>
+    <span class="horse-gender"><%= horse.sex ? "Stallion" : "Mare" %></span>
+  </div>
+  
+  <div class="horse-details">
+    <div class="detail-row">
+      <span class="label">Breed:</span>
+      <span class="value"><%= horse.breed %></span>
+    </div>
+    
+    <div class="detail-row">
+      <span class="label">Color:</span>
+      <span class="value"><%= horse.color %></span>
+    </div>
+    
+    <div class="detail-row">
+      <span class="label">Location:</span>
+      <span class="value"><%= horse.location %></span>
+    </div>
+  </div>
+  
+  <div class="horse-personality">
+    <h4>Personality</h4>
+    <div class="personality-tags">
+      <% horse.personality_traits.each do |trait| %>
+        <span class="personality-tag"><%= trait %></span>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="horse-bio">
+    <h4>About</h4>
+    <p><%= horse.short_bio %></p>
+  </div>
+  
+  <div class="horse-actions">
+    <%= link_to "View Profile", horse, class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_horse_path(horse), class: "btn btn-secondary" %>
+    <%= link_to "Delete", horse, method: :delete, 
+                data: { confirm: "Are you sure?" }, 
+                class: "btn btn-danger" %>
+  </div>
+</div>

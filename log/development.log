@@ -1,0 +1,616 @@
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='HorseTinder7'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-10-06 22:06:16.681980', '2025-10-06 22:06:16.681982') RETURNING "key" /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='HorseTinder7'*/[0m
+Migrating to CreateHorses (20251006220558)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "horses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "sex" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251006220558') RETURNING "version" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='HorseTinder7'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-10-06 18:12:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='HorseTinder7'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/michelleweon/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/michelleweon/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 38ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='HorseTinder7'*/[0m
+Migrating to AddAttributesToHorses (20251006221649)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "horses" ADD "age" integer /*application='HorseTinder7'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "horses" ADD "breed" varchar /*application='HorseTinder7'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "horses" ADD "color" varchar /*application='HorseTinder7'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "horses" ADD "personality" text /*application='HorseTinder7'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "horses" ADD "bio" text /*application='HorseTinder7'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "horses" ADD "location" varchar /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251006221649') RETURNING "version" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='HorseTinder7'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Load (0.3ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.8ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Thunder', 1, '2025-10-06 22:18:37.689009', '2025-10-06 22:18:37.689009', 8, 'Arabian', 'Bay', 'Energetic, Spirited, Loyal, Playful', 'Thunder is a magnificent Arabian stallion with a heart of gold. He loves long trail rides and has a playful personality that will keep you entertained. He''s looking for a mare who shares his love for adventure and can keep up with his energetic spirit.', 'Austin, Texas') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.7ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Luna', 0, '2025-10-06 22:18:37.692105', '2025-10-06 22:18:37.692105', 6, 'Thoroughbred', 'Chestnut', 'Gentle, Intelligent, Calm, Affectionate', 'Luna is a gentle soul who loves quiet moments and gentle rides. She''s incredibly intelligent and responds well to kind treatment. She''s looking for a calm, patient stallion who appreciates the finer things in life and enjoys peaceful trail rides.', 'Denver, Colorado') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.6ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Spirit', 1, '2025-10-06 22:18:37.694258', '2025-10-06 22:18:37.694258', 12, 'Quarter Horse', 'Palomino', 'Confident, Strong, Reliable, Protective', 'Spirit is a seasoned Quarter Horse with years of experience. He''s incredibly reliable and has a protective nature that makes him perfect for families. He''s looking for a mare who values stability and wants a partner for life.', 'Phoenix, Arizona') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.5ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Bella', 0, '2025-10-06 22:18:37.695886', '2025-10-06 22:18:37.695886', 4, 'Friesian', 'Black', 'Elegant, Graceful, Curious, Social', 'Bella is a stunning Friesian mare with an elegant presence. She''s naturally curious and loves meeting new horses. She''s looking for a stallion who appreciates beauty and grace, and who enjoys socializing with other horses.', 'Portland, Oregon') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.8ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Ranger', 1, '2025-10-06 22:18:37.697644', '2025-10-06 22:18:37.697644', 10, 'Mustang', 'Dun', 'Wild, Free-spirited, Independent, Adventurous', 'Ranger is a true wild spirit who loves the open range. He''s independent but loyal to those who earn his trust. He''s looking for a mare who shares his love for freedom and adventure, and who isn''t afraid to explore new trails.', 'Boulder, Colorado') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.7ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Rose', 0, '2025-10-06 22:18:37.699591', '2025-10-06 22:18:37.699591', 7, 'Paint', 'Tobiano', 'Artistic, Creative, Expressive, Fun-loving', 'Rose is a beautiful Paint mare with a creative spirit. She loves to express herself and has a fun-loving personality that brings joy to everyone around her. She''s looking for a stallion who appreciates her artistic nature and loves to have fun.', 'Nashville, Tennessee') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.7ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Apollo', 1, '2025-10-06 22:18:37.701487', '2025-10-06 22:18:37.701487', 9, 'Andalusian', 'Gray', 'Noble, Proud, Athletic, Disciplined', 'Apollo is a noble Andalusian stallion with a proud bearing. He''s incredibly athletic and disciplined, perfect for dressage or show jumping. He''s looking for a mare who shares his passion for excellence and isn''t afraid of a challenge.', 'San Diego, California') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Create (0.6ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Willow', 0, '2025-10-06 22:18:37.704343', '2025-10-06 22:18:37.704343', 5, 'Appaloosa', 'Leopard', 'Unique, Special, Caring, Nurturing', 'Willow is a unique Appaloosa mare with a special spotted coat. She has a caring and nurturing personality that makes her perfect for families with children. She''s looking for a stallion who appreciates her uniqueness and shares her caring nature.', 'Seattle, Washington') RETURNING "id" /*application='HorseTinder7'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='HorseTinder7'*/[0m
+  [1m[36mHorse Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "horses" /*application='HorseTinder7'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-10-06 18:18:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='HorseTinder7'*/[0m
+Processing by HorsesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/index.html.erb within layouts/application
+  [1m[36mHorse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "horses" LIMIT 1 /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:20
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:21
+  Rendered horses/_horse.html.erb (Duration: 1.0ms | GC: 0.5ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.9ms | GC: 0.7ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/index.html.erb within layouts/application (Duration: 50.4ms | GC: 20.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 57.4ms | GC: 20.7ms)
+Completed 200 OK in 109ms (Views: 57.3ms | ActiveRecord: 1.9ms (2 queries, 0 cached) | GC: 22.3ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:07 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 6.8ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.1ms)
+Completed 200 OK in 36ms (Views: 7.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/horses/1/edit" for 127.0.0.1 at 2025-10-06 18:19:10 -0400
+Processing by HorsesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='edit',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/edit.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 6.5ms | GC: 0.4ms)
+  Rendered horses/edit.html.erb within layouts/application (Duration: 7.2ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.4ms)
+Completed 200 OK in 30ms (Views: 7.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started PATCH "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:22 -0400
+Processing by HorsesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "horse"=>{"name"=>"Thunder", "age"=>"8", "sex"=>"true", "breed"=>"Arabian", "color"=>"Bay", "location"=>"Austin, Texas", "personality"=>"Energetic, Spirited, Loyal, Playful", "bio"=>"Thunder is a magnificent Arabian stallion with a heart of gold. He loves long trail rides and has a playful personality that will keep you entertained. He's looking for a mare who shares his love for adventure and can keep up with his energetic spirit. So majestic!"}, "commit"=>"Update Horse", "id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:40:in `block in update'
+  [1m[36mHorse Update (0.6ms)[0m  [1m[33mUPDATE "horses" SET "updated_at" = '2025-10-06 22:19:22.987197', "bio" = 'Thunder is a magnificent Arabian stallion with a heart of gold. He loves long trail rides and has a playful personality that will keep you entertained. He''s looking for a mare who shares his love for adventure and can keep up with his energetic spirit. So majestic!' WHERE "horses"."id" = 1 /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/horses/1
+Completed 303 See Other in 32ms (ActiveRecord: 1.3ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:23 -0400
+Processing by HorsesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:24 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:25 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 1.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:26 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:26 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/1/edit" for 127.0.0.1 at 2025-10-06 18:19:27 -0400
+Processing by HorsesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='edit',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/edit.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered horses/edit.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses" for 127.0.0.1 at 2025-10-06 18:19:29 -0400
+Processing by HorsesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/index.html.erb within layouts/application
+  [1m[36mHorse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "horses" LIMIT 1 /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:20
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:21
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 2.9ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:30 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 3.3ms | GC: 2.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | GC: 2.6ms)
+Completed 200 OK in 26ms (Views: 3.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 2.6ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:31 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 1.0ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | GC: 0.2ms)
+Completed 200 OK in 26ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/1/edit" for 127.0.0.1 at 2025-10-06 18:19:32 -0400
+Processing by HorsesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.3ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='edit',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/edit.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered horses/edit.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 1.3ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:33 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:33 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.4ms | GC: 0.3ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.9ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.3ms)
+Completed 200 OK in 27ms (Views: 1.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:34 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.3ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.0ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:34 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 1.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/1/edit" for 127.0.0.1 at 2025-10-06 18:19:35 -0400
+Processing by HorsesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='edit',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/edit.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered horses/edit.html.erb within layouts/application (Duration: 1.4ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.3ms)
+Completed 200 OK in 27ms (Views: 1.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/horses" for 127.0.0.1 at 2025-10-06 18:19:37 -0400
+Processing by HorsesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/index.html.erb within layouts/application
+  [1m[36mHorse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "horses" LIMIT 1 /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:20
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:21
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/index.html.erb within layouts/application (Duration: 3.0ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.4ms)
+Completed 200 OK in 30ms (Views: 3.4ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/horses/1/edit" for 127.0.0.1 at 2025-10-06 18:19:38 -0400
+Processing by HorsesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='edit',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/edit.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 1.0ms | GC: 0.2ms)
+  Rendered horses/edit.html.erb within layouts/application (Duration: 1.2ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.2ms)
+Completed 200 OK in 25ms (Views: 1.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses" for 127.0.0.1 at 2025-10-06 18:19:40 -0400
+Processing by HorsesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/index.html.erb within layouts/application
+  [1m[36mHorse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "horses" LIMIT 1 /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:20
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:21
+  Rendered horses/_horse.html.erb (Duration: 0.4ms | GC: 0.2ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/index.html.erb within layouts/application (Duration: 2.9ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.2ms)
+Completed 200 OK in 27ms (Views: 3.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:41 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 0.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:43 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/horses/1" for 127.0.0.1 at 2025-10-06 18:19:44 -0400
+Processing by HorsesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 1 LIMIT 1 /*action='destroy',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='destroy',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:52:in `destroy'
+  [1m[36mHorse Destroy (0.4ms)[0m  [1m[31mDELETE FROM "horses" WHERE "horses"."id" = 1 /*action='destroy',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='destroy',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/horses
+Completed 303 See Other in 25ms (ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses" for 127.0.0.1 at 2025-10-06 18:19:44 -0400
+Processing by HorsesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering horses/index.html.erb within layouts/application
+  [1m[36mHorse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "horses" LIMIT 1 /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:20
+  [1m[36mHorse Load (0.0ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:21
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/index.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 2.5ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/new" for 127.0.0.1 at 2025-10-06 18:19:49 -0400
+Processing by HorsesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/new.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered horses/new.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 2.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses" for 127.0.0.1 at 2025-10-06 18:19:51 -0400
+Processing by HorsesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/index.html.erb within layouts/application
+  [1m[36mHorse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "horses" LIMIT 1 /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:20
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:21
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/index.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 2.8ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses/new" for 127.0.0.1 at 2025-10-06 18:19:55 -0400
+Processing by HorsesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/new.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered horses/new.html.erb within layouts/application (Duration: 2.6ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 1.6ms)
+Completed 200 OK in 29ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/horses/new" for 127.0.0.1 at 2025-10-06 18:19:57 -0400
+Processing by HorsesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/new.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 1.4ms | GC: 0.4ms)
+  Rendered horses/new.html.erb within layouts/application (Duration: 1.6ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.4ms)
+Completed 200 OK in 29ms (Views: 2.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/horses" for 127.0.0.1 at 2025-10-06 18:20:24 -0400
+Processing by HorsesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "horse"=>{"name"=>"Thunder", "age"=>"17", "sex"=>"true", "breed"=>"Arabian", "color"=>"Bay", "location"=>"Austin, Texas", "personality"=>"STRONG NOT DEMURE", "bio"=>"just a horse"}, "commit"=>"Create Horse"}
+  Rendering layout layouts/application.html.erb
+  Rendering horses/new.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 1.6ms | GC: 0.4ms)
+  Rendered horses/new.html.erb within layouts/application (Duration: 1.7ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.4ms)
+Completed 422 Unprocessable Content in 29ms (Views: 2.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/horses" for 127.0.0.1 at 2025-10-06 18:20:33 -0400
+Processing by HorsesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "horse"=>{"name"=>"Thunder", "age"=>"17", "sex"=>"true", "breed"=>"Arabian", "color"=>"Bay", "location"=>"Austin, Texas", "personality"=>"STRONG NOT DEMURE", "bio"=>"just a chill horse what can he say"}, "commit"=>"Create Horse"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:27:in `block in create'
+  [1m[36mHorse Create (0.6ms)[0m  [1m[32mINSERT INTO "horses" ("name", "sex", "created_at", "updated_at", "age", "breed", "color", "personality", "bio", "location") VALUES ('Thunder', 1, '2025-10-06 22:20:33.399442', '2025-10-06 22:20:33.399442', 17, 'Arabian', 'Bay', 'STRONG NOT DEMURE', 'just a chill horse what can he say', 'Austin, Texas') RETURNING "id" /*action='create',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/horses/9
+Completed 302 Found in 29ms (ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/9" for 127.0.0.1 at 2025-10-06 18:20:33 -0400
+Processing by HorsesController#show as TURBO_STREAM
+  Parameters: {"id"=>"9"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 9 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/9/edit" for 127.0.0.1 at 2025-10-06 18:20:35 -0400
+Processing by HorsesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 9 LIMIT 1 /*action='edit',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/edit.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered horses/edit.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started PATCH "/horses/9" for 127.0.0.1 at 2025-10-06 18:20:40 -0400
+Processing by HorsesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "horse"=>{"name"=>"Thunder", "age"=>"17", "sex"=>"true", "breed"=>"Arabian", "color"=>"Bay", "location"=>"Austin, Texas", "personality"=>"STRONG, NOT DEMURE", "bio"=>"just a chill horse what can he say"}, "commit"=>"Update Horse", "id"=>"9"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 9 LIMIT 1 /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:40:in `block in update'
+  [1m[36mHorse Update (0.7ms)[0m  [1m[33mUPDATE "horses" SET "updated_at" = '2025-10-06 22:20:40.919541', "personality" = 'STRONG, NOT DEMURE' WHERE "horses"."id" = 9 /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/horses/9
+Completed 303 See Other in 28ms (ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/horses/9" for 127.0.0.1 at 2025-10-06 18:20:40 -0400
+Processing by HorsesController#show as TURBO_STREAM
+  Parameters: {"id"=>"9"}
+  [1m[36mHorse Load (0.3ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 9 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 0.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/9" for 127.0.0.1 at 2025-10-06 18:20:42 -0400
+Processing by HorsesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 9 LIMIT 1 /*action='show',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/show.html.erb within layouts/application
+  Rendered horses/_horse.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered horses/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/horses/9/edit" for 127.0.0.1 at 2025-10-06 18:20:45 -0400
+Processing by HorsesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mHorse Load (0.1ms)[0m  [1m[34mSELECT "horses".* FROM "horses" WHERE "horses"."id" = 9 LIMIT 1 /*action='edit',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/controllers/horses_controller.rb:63:in `set_horse'
+  Rendering layout layouts/application.html.erb
+  Rendering horses/edit.html.erb within layouts/application
+  Rendered horses/_form.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered horses/edit.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/horses" for 127.0.0.1 at 2025-10-06 18:20:45 -0400
+Processing by HorsesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering horses/index.html.erb within layouts/application
+  [1m[36mHorse Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "horses" LIMIT 1 /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:20
+  [1m[36mHorse Load (0.0ms)[0m  [1m[34mSELECT "horses".* FROM "horses" /*action='index',application='HorseTinder7',controller='horses'*/[0m
+  ↳ app/views/horses/index.html.erb:21
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered horses/_horse.html.erb (Duration: 0.4ms | GC: 0.3ms)
+  Rendered horses/index.html.erb within layouts/application (Duration: 2.6ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.3ms)
+Completed 200 OK in 27ms (Views: 3.1ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
